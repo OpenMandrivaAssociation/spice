@@ -15,7 +15,6 @@ Patch1:		%name-3.5.5-gcc-4.1.patch
 Buildrequires:	libtermcap-devel
 BuildRequires:	libxt-devel 
 BuildRequires:	libxaw-devel
-Buildroot: 	%{_tmppath}/%{name}-buildroot
 
 %description
 SPICE 3 is a general-purpose circuit simulation program for nonlinear
