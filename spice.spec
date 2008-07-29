@@ -1,7 +1,7 @@
 Summary: 	Berkeley SPICE 3 Circuit Simulator
 Name: 		spice
 Version: 	3f5
-Release: 	%mkrel 10
+Release: 	%mkrel 12
 License:	BSD
 URL:		http://www.ibiblio.org/pub/Linux/apps/circuits/
 Group: 		Sciences/Other
