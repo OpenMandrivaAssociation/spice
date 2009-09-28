@@ -1,7 +1,7 @@
 Summary: 	Berkeley SPICE 3 Circuit Simulator
 Name: 		spice
 Version: 	3f5
-Release: 	%mkrel 14
+Release: 	%mkrel 15
 License:	BSD
 URL:		http://www.ibiblio.org/pub/Linux/apps/circuits/
 Group: 		Sciences/Other
@@ -27,8 +27,8 @@ This version includes support for the Bsim3 model (V3.1)
 rm -rf %{buildroot}
 %setup -q -n %{name}%{version}sfix
 
-%patch0 -p1
-%patch1 -p1
+%patch0 -p1 -b .linux-conf
+%patch1 -p1 -b .gcc41
 
 %build
 ./util/build linux gcc
