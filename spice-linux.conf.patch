@@ -1,0 +1,33 @@
+--- spice3f5sfix/conf/linux.linux-conf	1999-06-25 07:24:00.000000000 +0200
++++ spice3f5sfix/conf/linux	2009-09-28 11:28:18.000000000 +0200
+@@ -1,10 +1,10 @@
+ # Linux/GNU (installs under /usr/local/spice) 
+ 
+-DEFAULT_EDITOR  = joe
++DEFAULT_EDITOR  = vi
+ ASCII_RAWFILE	= 0
+ INTERFACE_OPTS	= -DWANT_X11
+ MAKE            = make
+-X_DIR           = /usr/X11R6
++X_DIR           = /usr
+ INCX            = -I$(X_DIR)/include -I$(X_DIR)/include/X11        \
+                   -I$(X_DIR)/include/X11/Xmu                       \
+                   -I$(X_DIR)/include/X11/Xaw
+@@ -13,13 +13,13 @@ LIBX            = -L$(X_DIR)/lib -lXaw -
+ LDFLAGS	        = -ltermcap -lm -s  
+ 
+ CC_OPT	        = -O2 -s
+-
+-SPICE_DIR       = /usr/local/spice
+-SPICE_LIB_DIR   = $(SPICE_DIR)/lib
++SPICE_DIR       = /usr
++ 
++SPICE_LIB_DIR   = $(SPICE_DIR)/share/spice
+ SPICE_EXEC_DIR  = $(SPICE_DIR)/bin
+ 
+ S_SPICE_DIR     = $(SPICE_DIR)
+-S_SPICE_LIB_DIR	= $(S_SPICE_DIR)/lib
++S_SPICE_LIB_DIR	= $(S_SPICE_DIR)/share/spice
+ S_SPICE_EXEC_DIR= $(S_SPICE_DIR)/bin
+ 
+ INSTALL_DIRS    = $(SPICE_DIR) $(SPICE_EXEC_DIR) $(SPICE_LIB_DIR)
