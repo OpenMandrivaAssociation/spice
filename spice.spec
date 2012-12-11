@@ -1,17 +1,19 @@
-Summary: 	Berkeley SPICE 3 Circuit Simulator
-Name: 		spice
-Version: 	3f5
-Release: 	%mkrel 15
+%define _enable_debug_packages %{nil}
+%define debug_package %{nil}
+
+Summary:	Berkeley SPICE 3 Circuit Simulator
+Name:		spice
+Version:	3f5
+Release:	16
 License:	BSD
 URL:		http://www.ibiblio.org/pub/Linux/apps/circuits/
-Group: 		Sciences/Other
-Source: 	%{name}%{version}sfix.tar.bz2
-Patch0:		%name-linux.conf.patch
-Patch1:		%name-3.5.5-gcc-4.1.patch
-Buildrequires:	libtermcap-devel
-BuildRequires:	libxt-devel 
-BuildRequires:	libxaw-devel
-Buildroot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Group:		Sciences/Other
+Source:		%{name}%{version}sfix.tar.bz2
+Patch0:		%{name}-linux.conf.patch
+Patch1:		%{name}-3.5.5-gcc-4.1.patch
+BuildRequires:	termcap-devel
+BuildRequires:	pkgconfig(xt)
+BuildRequires:	pkgconfig(xaw7)
 
 %description
 SPICE 3 is a general-purpose circuit simulation program for nonlinear
@@ -24,7 +26,6 @@ diodes, BJT's, JFET's, and MOSFET's.
 This version includes support for the Bsim3 model (V3.1)
 
 %prep
-rm -rf %{buildroot}
 %setup -q -n %{name}%{version}sfix
 
 %patch0 -p1 -b .linux-conf
@@ -44,13 +45,13 @@ install -d  %{buildroot}%{_datadir}/%{name}/helpdir
 
 install -d  %{buildroot}%{_mandir}/man1
 
-install -s obj/bin/spice3 %{buildroot}%{_bindir}
+install obj/bin/spice3 %{buildroot}%{_bindir}
 ln -s /usr/bin/spice3 %{buildroot}%{_bindir}/spice
-install -s obj/bin/help %{buildroot}%{_bindir}
-install -s obj/bin/nutmeg %{buildroot}%{_bindir}
-install -s obj/bin/sconvert %{buildroot}%{_bindir}
-install -s obj/bin/multidec %{buildroot}%{_bindir}
-install -s obj/bin/proc2mod %{buildroot}%{_bindir}
+install obj/bin/help %{buildroot}%{_bindir}
+install obj/bin/nutmeg %{buildroot}%{_bindir}
+install obj/bin/sconvert %{buildroot}%{_bindir}
+install obj/bin/multidec %{buildroot}%{_bindir}
+install obj/bin/proc2mod %{buildroot}%{_bindir}
 
 rm lib/make*
 cp -r lib/* %{buildroot}%{_datadir}/%{name}
@@ -59,9 +60,6 @@ obj/bin/makeidx %{buildroot}%{_datadir}/%{name}/helpdir/spice.txt
 install -m 644 man/man1/* %{buildroot}%{_mandir}/man1
 
 chmod 644 3f5patches/README*
-
-%clean
-rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,0755)
