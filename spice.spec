@@ -6,7 +6,7 @@ Name:		spice
 Version:	3f5
 Release:	17
 License:	BSD
-URL:		http://www.ibiblio.org/pub/Linux/apps/circuits/
+URL:		https://www.ibiblio.org/pub/Linux/apps/circuits/
 Group:		Sciences/Other
 Source:		%{name}%{version}sfix.tar.bz2
 Patch0:		%{name}-linux.conf.patch
